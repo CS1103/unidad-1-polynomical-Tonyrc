@@ -73,7 +73,7 @@ Polynomial Polynomial::operator*(Polynomial p)
     {
         for(int j = 0; j < this->items.size(); j++)
         {
-            coefi[(p.items[i].grado)*(this->items[j].grado)]+=p.items[i].coeficiente*this->items[j].coeficiente;
+            coefi[(p.items[i].grado)+(this->items[j].grado)]+=p.items[i].coeficiente*this->items[j].coeficiente;
         }
     }
     for(int i=0; i < tam; i++){
