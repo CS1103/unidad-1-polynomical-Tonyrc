@@ -5,7 +5,9 @@
 #ifndef POLINOMIO_POLINOMIO_H
 #define POLINOMIO_POLINOMIO_H
 
+#include <iostream>
 #include <vector>
+#include <string>
 using namespace std;
 
 struct Monomio {
@@ -13,9 +15,6 @@ struct Monomio {
     int grado;
 };
 
-bool comp(Monomio a,Monomio b){
-    return (a.grado<b.grado);
-}
 
 class Polynomial {
 private:
@@ -25,20 +24,24 @@ public:
     Polynomial();
     int degree();
 
-    Polynomial& operator=(int a[n][2]);
+    Polynomial operator=(Polynomial p);
     Polynomial operator+(Polynomial p);
     Polynomial operator*(Polynomial p);
-
     Polynomial operator+(int n);
     Polynomial operator*(int n);
+    friend Polynomial operator+(int n,Polynomial p);
+    friend Polynomial operator*(int n,Polynomial p);
 
     Polynomial operator^(int n);
 
     Polynomial operator+=(Polynomial p);
     Polynomial operator+=(int n);
 
-    string get_expression(Polynomial p);
+    string get_expression();
 
+    void add(Monomio a);
+
+    friend ostream& operator<<(ostream &a, Polynomial b);
     ~Polynomial()=default;
 
 

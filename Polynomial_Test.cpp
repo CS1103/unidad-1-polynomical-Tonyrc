@@ -4,7 +4,7 @@
 
 using namespace std;
 
-#define LISTA
+//#define LISTA
 
 
 string get_expression(Polynomial& p) {
@@ -126,7 +126,7 @@ TEST_CASE("Polynomial") {
 		p1.add({ 3, 1 });
 #endif
 		auto p2 = p1 * 10;
-		auto p3 = 20 * p1;
+	 	auto p3 = 20 * p1;
 		REQUIRE(get_expression(p1) == "1+3x^1");
 		REQUIRE(get_expression(p2) == "10+30x^1");
 		REQUIRE(get_expression(p3) == "20+60x^1");
